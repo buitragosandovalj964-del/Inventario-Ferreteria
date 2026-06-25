@@ -1,0 +1,69 @@
+-- =============================================
+-- DML DATA - Ferretería El Martillo
+-- Inserción de 10 registros por tabla
+-- =============================================
+
+USE inventario_ferreteria;
+
+INSERT INTO Categoria (Nombre_Categoria, Descripcion) VALUES
+('Herramientas Manuales',  'Martillos, destornilladores, llaves y herramientas de mano en general'),
+('Electricidad',           'Cables, interruptores, tomacorrientes y materiales eléctricos'),
+('Plomería',               'Tubos, válvulas, llaves de paso y accesorios para agua'),
+('Pinturas',               'Pinturas, esmaltes, selladores y accesorios para pintar'),
+('Seguridad',              'Cascos, guantes, gafas y equipos de protección personal'),
+('Fijaciones',             'Tornillos, puntillas, anclajes y elementos de sujeción'),
+('Construcción',           'Cemento, arena, bloques y materiales de obra'),
+('Jardinería',             'Palas, rastrillos, mangueras y herramientas para jardín'),
+('Medición',               'Niveles, metros, calibradores e instrumentos de medición'),
+('Soldadura',              'Electrodos, equipos de soldadura y accesorios relacionados');
+
+
+INSERT INTO Ubicacion (Pasillo, Estante) VALUES
+('A', '1'),
+('A', '2'),
+('B', '1'),
+('B', '2'),
+('C', '1'),
+('C', '2'),
+('D', '1'),
+('D', '2'),
+('E', '1'),
+('E', '2');
+
+
+INSERT INTO Productos (Referencia_Interna, Nombre_Producto, Descripcion, Marca_Producto, Unidad_Venta, Precio_Venta, Estado, Cantidad_Disponible, Cantidad_Minima, Cantidad_Maxima, id_categoria, id_ubicacion) VALUES
+('REF-001', 'Martillo de acero 16oz',        'Martillo de acero con mango de fibra de vidrio, cabeza de 16oz',         'Truper',   'unidad',  35000.00, 'disponible',    25, 5,  50, 1, 1),
+('REF-002', 'Destornillador pala 1/4',        'Destornillador de pala punta plana 1/4 pulgada, mango ergonómico',        'Stanley',  'unidad',  12000.00, 'disponible',    40, 10, 80, 1, 2),
+('REF-003', 'Cable THHN calibre 12',          'Cable eléctrico THHN calibre 12 AWG color negro, rollo de 100m',          'Centelsa', 'rollo',  180000.00, 'disponible',    15, 3,  30, 2, 3),
+('REF-004', 'Tubo PVC 1/2 pulgada x 6m',     'Tubo de PVC presión 1/2 pulgada por 6 metros, norma NTC',                'Pavco',    'unidad',  22000.00, 'disponible',    60, 10, 100,3, 4),
+('REF-005', 'Pintura vinilo blanco 1 galón',  'Pintura de vinilo interior color blanco, rendimiento 35m2 por galón',     'Pintuco',  'unidad',  48000.00, 'disponible',    30, 5,  60, 4, 5),
+('REF-006', 'Casco de seguridad tipo I',      'Casco de seguridad industrial tipo I color amarillo, ANSI Z89.1',         'Arseg',    'unidad',  28000.00, 'disponible',     8, 5,  40, 5, 6),
+('REF-007', 'Tornillo autorroscante 8x1',     'Tornillo autorroscante punta broca 8x1 pulgada, caja por 100 unidades',  'Hilti',    'caja',    15000.00, 'disponible',    50, 10, 100,6, 7),
+('REF-008', 'Martillo demoledor 3kg',         'Martillo demoledor de acero macizo 3kg para trabajos pesados',            'Truper',   'unidad',  75000.00, 'disponible',     3, 5,  20, 1, 8),
+('REF-009', 'Nivel de burbuja 60cm',          'Nivel de aluminio con tres burbujas, longitud 60cm, precisión ±0.5mm',   'Stanley',  'unidad',  42000.00, 'disponible',    12, 3,  25, 9, 9),
+('REF-010', 'Electrodo 6013 1/8 kg',         'Electrodo revestido 6013 diámetro 1/8 pulgada, paquete por kilo',         'Lincoln',  'kilo',    32000.00, 'descontinuado',  2, 5,  40,10,10);
+
+INSERT INTO Proveedor (NIT, Nombre_Proveedor, Contacto, Telefono, Correo, Direccion, Ciudad, Estado) VALUES
+('900123456-1', 'Ferretería Industrial del Norte',  'Carlos Pérez',    '3101234567', 'cperez@findelnorte.com',     'Cra 45 #23-10',  'Bogotá',    'activo'),
+('800234567-2', 'Distribuciones El Constructor',    'Ana Gómez',       '3209876543', 'agomez@elconstructor.com',   'Cll 80 #15-22',  'Medellín',  'activo'),
+('700345678-3', 'Suministros Técnicos Andinos',     'Jorge Torres',    '3154567890', 'jtorres@suministrosandinos.com','Av 68 #50-30', 'Bogotá',    'activo'),
+('600456789-4', 'Materiales y Ferretería Cali',     'Laura Ríos',      '3187654321', 'lrios@matferreteria.com',    'Cll 5 #38-90',   'Cali',      'activo'),
+('500567890-5', 'Almacén Industrial del Pacífico',  'Pedro Salcedo',   '3223456789', 'psalcedo@indpacifico.com',   'Cra 1 #12-45',   'Cali',      'inactivo'),
+('400678901-6', 'Proveedores del Oriente SAS',      'María Castillo',  '3112345678', 'mcastillo@provoriente.com',  'Cll 20 #7-15',   'Bucaramanga','activo'),
+('300789012-7', 'Tornillos y Fijaciones Ltda',      'Luis Herrera',    '3198765432', 'lherrera@tornifija.com',     'Cra 33 #44-67',  'Bogotá',    'activo'),
+('200890123-8', 'Electricos del Sur',               'Sandra Mora',     '3167890123', 'smora@electricossur.com',    'Av Sur #8-20',   'Medellín',  'inactivo'),
+('100901234-9', 'Industrial Pinturas y Más',        'Ricardo Vargas',  '3145678901', 'rvargas@indpinturas.com',    'Cll 12 #55-33',  'Bogotá',    'activo'),
+('950012345-0', 'Herramientas Profesionales SAS',   'Claudia Niño',    '3134567890', 'cnino@herrapro.com',         'Cra 9 #18-72',   'Cali',      'activo');
+
+
+INSERT INTO Producto_Proveedor (id_producto, NIT_proveedor, Referencia_Proveedor, Precio_Compra, Dias_Entrega) VALUES
+(1,  '900123456-1', 'MART-16-TRP',  22000.00,  3),
+(1,  '950012345-0', 'HP-MART16',    21000.00,  5),
+(2,  '900123456-1', 'DEST-P14-STL', 7500.00,   3),
+(3,  '200890123-8', 'CAB-THHN12',   120000.00, 7),
+(4,  '800234567-2', 'TUB-PVC-12-6', 14000.00,  4),
+(5,  '100901234-9', 'PINT-VIN-BL1', 31000.00,  2),
+(6,  '400678901-6', 'CASC-I-AM',    18000.00,  8),
+(7,  '300789012-7', 'TORN-8X1-C100',9500.00,   1),
+(8,  '950012345-0', 'HP-MARTD3K',   50000.00,  6),
+(10, '200890123-8', 'ELEC-6013-1K', 21000.00, 10);

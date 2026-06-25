@@ -1,0 +1,81 @@
+-- =============================================
+-- DML QUERYS - Ferretería El Martillo
+-- 10 consultas requeridas
+-- =============================================
+
+USE inventario_ferreteria;
+
+-- ---------------------------------------------
+-- 1. Mostrar toda la información registrada sobre los productos.
+-- ---------------------------------------------
+SELECT *
+FROM Productos;
+
+-- ---------------------------------------------
+-- 2. Mostrar las categorías cuyo nombre comience por la letra H.
+-- ---------------------------------------------
+SELECT *
+FROM Categoria
+WHERE Nombre_Categoria LIKE 'H%';
+
+-- ---------------------------------------------
+-- 3. Mostrar la referencia, el nombre y la marca de los productos cuyo nombre comience por Martillo.
+-- ---------------------------------------------
+SELECT Referencia_Interna, Nombre_Producto, Marca_Producto
+FROM Productos
+WHERE Nombre_Producto LIKE 'Martillo%';
+
+-- ---------------------------------------------
+-- 4. Mostrar los productos cuya descripción contenga la palabra acero.
+-- ---------------------------------------------
+SELECT *
+FROM Productos
+WHERE Descripcion LIKE '%acero%';
+
+-- ---------------------------------------------
+-- 5. Mostrar los productos de la marca Truper que se encuentren disponibles.
+-- ---------------------------------------------
+SELECT *
+FROM Productos
+WHERE Marca_Producto = 'Truper'
+  AND Estado = 'disponible';
+
+-- ---------------------------------------------
+-- 6. Mostrar los productos cuya cantidad disponible sea menor que su cantidad mínima.
+-- ---------------------------------------------
+SELECT *
+FROM Productos
+WHERE Cantidad_Disponible < Cantidad_Minima;
+
+-- ---------------------------------------------
+-- 7. Mostrar los productos cuya cantidad disponible sea menor que la mínima o mayor que la máxima.
+-- ---------------------------------------------
+SELECT *
+FROM Productos
+WHERE Cantidad_Disponible < Cantidad_Minima
+   OR Cantidad_Disponible > Cantidad_Maxima;
+
+-- ---------------------------------------------
+-- 8. Mostrar los proveedores ubicados en Bogotá que se encuentren activos.
+-- ---------------------------------------------
+SELECT *
+FROM Proveedor
+WHERE Ciudad = 'Bogotá'
+  AND Estado = 'activo';
+
+-- ---------------------------------------------
+-- 9. Mostrar los proveedores cuyo nombre contenga la palabra Industrial o cuya ciudad sea Cali.
+-- ---------------------------------------------
+SELECT *
+FROM Proveedor
+WHERE Nombre_Proveedor LIKE '%Industrial%'
+   OR Ciudad = 'Cali';
+
+-- ---------------------------------------------
+-- 10. Mostrar las ofertas de suministro cuyo tiempo estimado de entrega sea superior a siete días
+--     o cuyo precio de compra sea mayor a 500000.
+-- ---------------------------------------------
+SELECT *
+FROM Producto_Proveedor
+WHERE Dias_Entrega > 7
+   OR Precio_Compra > 500000;
